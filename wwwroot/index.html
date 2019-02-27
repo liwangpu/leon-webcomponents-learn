@@ -8,7 +8,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="./assets/scripts/jquery-1.12.4.min.js"></script>
     <script>
-        
+        class MyCoolTagComponent extends HTMLElement {
+            constructor() {
+                super();
+                console.log('constructor trigger!');
+            }//constructor
+
+            connectedCallback() {
+                console.log('connectedCallback trigger!');
+            }//connectedCallback
+
+            disconnectedCallback() {
+                console.log('disconnectedCallback trigger!');
+            }//disconnectedCallback
+        }
+
+        customElements.define('my-cool-tag', MyCoolTagComponent);
+
         $(function () {
 
         });//$
@@ -16,7 +32,8 @@
 </head>
 
 <body>
-    <h1>Hello world!</h1>
+
+    <my-cool-tag>我自定义的标签</my-cool-tag>
 </body>
 
 </html>
